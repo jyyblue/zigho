@@ -1,6 +1,18 @@
 <footer>
+    <div style="background-color: #0cafff">
+        <div class="row w90 m-auto">
+            <div class="col-sm-9 text-white">
+                <h5 class="mt-3">{{ __('Want to become a Real Estate Agent?')}}</h5>
+                <p>{{ __('We`ll help you to grow your career and growth.') }}</p>
+            </div>
+            <div class="col-sm-3 m-auto">
+                <a href="{{ route('public.account.register') }}" class="btn btn-light rounded-pill">{{ __('Sign Up') }}</a>
+            </div>
+        </div>
+    </div>
     <br>
     <div class="container-fluid w90">
+        
         <div class="row">
             <div class="col-sm-3">
                 @if ($logo = theme_option('logo'))

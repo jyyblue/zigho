@@ -596,6 +596,7 @@
         .dropdown-item {
             padding-left: 0.75em;
             padding-right: 0.75em;
+            background-color: inherit;
         }
 
         .dropdown-item.active,
@@ -2124,6 +2125,7 @@ body.show-admin-bar {
 
     .dropdown-menu {
         padding: 0;
+        background: #d3d3d3;
     }
 }
 
@@ -2456,10 +2458,10 @@ ul.listnews li:last-child {
         position: relative;
         background: #fff;
         border-radius: 6px;
-        margin-bottom: 30px;
+        // margin-bottom: 30px;
         border: none;
-        box-shadow: 0 0 20px 0 rgb(62 28 131 / 10%);
-        -webkit-box-shadow: 0 0 20px 0 rgb(62 28 131 / 10%);
+        // box-shadow: 0 0 20px 0 rgb(62 28 131 / 10%);
+        // -webkit-box-shadow: 0 0 20px 0 rgb(62 28 131 / 10%);
 
         .fr-grid-thumb {
             width: 100%;
@@ -2904,6 +2906,28 @@ label.required:after {
 
 .mt-20 {
     margin-top: 20px;
+}
+
+@media(max-width: 767px) {
+    .topsearch .typesearch {
+        display: flex;
+    }
+
+    .topsearch .typesearch a {
+        flex: 1;
+    }
+}
+
+@media (min-width: 992px) {
+    .d-none-min-992 {
+        display: none;
+    }
+}
+
+@media (max-width: 991px) {
+    .d-none-max-992 {
+        display: none;
+    }
 }
 
 @import 'reviews';

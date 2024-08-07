@@ -73,7 +73,37 @@
             dots: false,
             nav: true,
             navText: [$('.am-prev'), $('.am-next')],
-            loop: false,
+            loop: true,
+            autoplay: true,
+            autoplayTimeout: 2000,
+            responsive: {
+                0: {
+                    items: 1,
+                },
+                400: {
+                    items: 2,
+                },
+                800: {
+                    items: 3,
+                },
+                1000: {
+                    items: 4,
+                },
+                1300: {
+                    items: 5,
+                },
+            },
+        })
+
+        $('#agentslide').owlCarousel({
+            rtl: isRTL,
+            margin: 20,
+            dots: false,
+            nav: true,
+            navText: [$('.agent-am-prev'), $('.agent-am-next')],
+            loop: true,
+            autoplay: true,
+            autoplayTimeout: 2000,
             responsive: {
                 0: {
                     items: 1,

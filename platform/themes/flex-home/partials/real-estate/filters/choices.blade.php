@@ -19,16 +19,6 @@
                 </div>
             </div>
 
-            @if (RealEstateHelper::isEnabledProjects())
-                <div class="dropdown-item">
-                    <div class="row">
-                        <div class="col-12">
-                            {!! Theme::partial('real-estate.filters.by-project') !!}
-                        </div>
-                    </div>
-                </div>
-            @endif
-
             <div class="dropdown-item">
                 <div class="row">
                     <div class="col-6 pr-1">

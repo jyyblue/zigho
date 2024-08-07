@@ -1,6 +1,6 @@
 @if($enabledTypes = Botble\RealEstate\Facades\RealEstateHelper::enabledPropertyTypes())
     <div class="form-group">
-        <label for="select-type" class="control-label">{{ __('Type') }}</label>
+        <label for="select-type" class="control-label">{{ __('Status') }}</label>
         <div class="select--arrow">
             <select name="type" id="select-type" class="form-control">
                 <option value="">{{ __('-- Select --') }}</option>

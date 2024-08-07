@@ -4,7 +4,7 @@
     $enableProjectsSearch = $shortcode->enable_search_projects_on_homepage_search ? $shortcode->enable_search_projects_on_homepage_search == 'yes' : theme_option('enable_search_projects_on_homepage_search', 'yes') == 'yes';
     $defaultSearchType = $shortcode->default_home_search_type ?: theme_option('default_home_search_type', 'project');
 
-    $tabs = ['project', 'sale', 'rent'];
+    $tabs = ['rent', 'sale', 'project'];
     $quantity = min((int) $shortcode->quantity, 20);
     if ($quantity) {
         for ($i = 1; $i <= $quantity; $i++) {
@@ -57,14 +57,14 @@
                     class="typesearch"
                     id="hometypesearch"
                 >
-                    @if (in_array('project', $tabs))
+                    @if (in_array('rent', $tabs))
                         <a
-                            data-url="{{ RealEstateHelper::getProjectsListPageUrl() }}"
-                            data-ajax-url="{{ route('public.projects') }}"
-                            href="{{ route('public.projects') }}"
-                            @if ($defaultSearchType == 'project') class="active" @endif
-                            rel="project"
-                        >{{ __('Projects') }}</a>
+                            data-url="{{ RealEstateHelper::getPropertiesListPageUrl() }}"
+                            data-ajax-url="{{ route('public.properties') }}"
+                            href="{{ route('public.properties') }}"
+                            rel="rent"
+                            @if ($defaultSearchType == 'rent') class="active" @endif
+                        >{{ __('Rent') }}</a>
                     @endif
 
                     @if (in_array('sale', $tabs))
@@ -77,14 +77,14 @@
                         >{{ __('Sale') }}</a>
                     @endif
 
-                    @if (in_array('rent', $tabs))
+                    @if (in_array('project', $tabs))
                         <a
-                            data-url="{{ RealEstateHelper::getPropertiesListPageUrl() }}"
-                            data-ajax-url="{{ route('public.properties') }}"
-                            href="{{ route('public.properties') }}"
-                            rel="rent"
-                            @if ($defaultSearchType == 'rent') class="active" @endif
-                        >{{ __('Rent') }}</a>
+                            data-url="{{ RealEstateHelper::getProjectsListPageUrl() }}"
+                            data-ajax-url="{{ route('public.projects') }}"
+                            href="{{ route('public.projects') }}"
+                            @if ($defaultSearchType == 'project') class="active" @endif
+                            rel="project"
+                        >{{ __('Projects') }}</a>
                     @endif
                 </div>
             @endif
@@ -103,18 +103,15 @@
                     <span class="input-group-text"><i class="far fa-search"></i></span>
                 </div>
                 <div class="keyword-input">
-                    <input
-                        class="form-control"
-                        id="txtkey"
-                        name="k"
-                        type="text"
-                        @if ($defaultSearchType == 'project') 
-                            placeholder="{{ __('Type/search a project') }}"
-                        @else
-                            placeholder="{{ __('Type/search a property') }}"
-                        @endif
-                        autocomplete="off"
-                    >
+                        <div class="select--arrow">
+                            <select name="category_id" id="select-category" class="form-control">
+                                <option value="">{{ __('-- Select Category --') }}</option>
+                                @foreach($categories as $category)
+                                    <option value="{{ $category->id }}" @if (request()->input('category_id') == $category->id) selected @endif>{!! BaseHelper::clean($category->indent_text) !!} {{ $category->name }}</option>
+                                @endforeach
+                            </select>
+                            <i class="fas fa-angle-down"></i>
+                        </div>
                     <div class="spinner-icon">
                         <i class="fas fa-spin fa-spinner"></i>
                     </div>
@@ -134,7 +131,7 @@
                         class="select-city-state form-control"
                         name="location"
                         value="{{ BaseHelper::stringify(request()->input('location')) }}"
-                        placeholder="{{ __('City, State') }}"
+                        placeholder="{{ __('Type/search a location') }}"
                         autocomplete="off"
                     >
                     <div class="spinner-icon">

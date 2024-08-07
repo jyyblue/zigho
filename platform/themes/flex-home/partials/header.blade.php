@@ -89,10 +89,8 @@
                             <ul class="topbar-items">
                                 @if (auth('account')->check())
                                     <li class="login-item"><a href="{{ route('public.account.dashboard') }}" rel="nofollow"><i class="fas fa-user"></i>&nbsp;<span>{{ auth('account')->user()->name }}</span></a></li>
-                                    <li class="login-item"><a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" rel="nofollow"><i class="fas fa-sign-out-alt"></i>&nbsp;{{ __('Logout') }}</a></li>
                                 @else
                                     <li class="login-item">
-                                        <a href="{{ route('public.account.login') }}"><i class="fas fa-sign-in-alt"></i>&nbsp;{{ __('Login') }}</a>
                                     </li>
                                 @endif
                             </ul>
@@ -154,7 +152,11 @@
                                             <i class="fas fa-plus-circle"></i> {{ __('Post Property') }}
                                         </a>
                                     @endif
-
+                                    @if (is_plugin_active('real-estate') && !auth('account')->check())
+                                    <a class="btn btn-primary add-property d-none-max-992" href="{{ route('public.account.login') }}"><i class="fas fa-sign-in-alt"></i>&nbsp;{{ __('Login') }}</a>
+                                    @else
+                                    <a class="btn btn-primary add-property d-none-max-992" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fas fa-sign-out-alt"></i>&nbsp;{{ __('Logout') }}</a>
+                                    @endif
                                     <div class="d-sm-none">
                                         <div>
                                             @if (is_plugin_active('real-estate'))
@@ -167,7 +169,7 @@
                                                 @endif
 
                                                 @if (count($currencies) > 1)
-                                                    <div class="language">
+                                                    <div class="language mb-2">
                                                         <div class="language-switcher-wrapper">
                                                             <div class="d-inline-block language-label">
                                                                 {{ __('Currencies') }}:
@@ -193,10 +195,10 @@
                                                 <ul class="topbar-items d-block">
                                                     @if (auth('account')->check())
                                                         <li class="login-item"><a href="{{ route('public.account.dashboard') }}" rel="nofollow"><i class="fas fa-user"></i> <span>{{ auth('account')->user()->name }}</span></a></li>
-                                                        <li class="login-item"><a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" rel="nofollow"><i class="fas fa-sign-out-alt"></i> {{ __('Logout') }}</a></li>
+                                                        <li class="login-item"><a class="btn btn-primary text-white" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" rel="nofollow"><i class="fas fa-sign-out-alt"></i> {{ __('Logout') }}</a></li>
                                                     @else
                                                         <li class="login-item">
-                                                            <a href="{{ route('public.account.login') }}"><i class="fas fa-sign-in-alt"></i>  {{ __('Login') }}</a>
+                                                            <a href="{{ route('public.account.login') }}" class="btn btn-primary text-white"><i class="fas fa-sign-in-alt"></i>  {{ __('Login') }}</a>
                                                         </li>
                                                     @endif
                                                 </ul>

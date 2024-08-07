@@ -349,12 +349,12 @@
                                         <p
                                             class="mobile"
                                             dir="ltr"
-                                        ><a href="tel:{{ $account->phone }}">{{ $account->phone }}</a></p>
+                                        ><a class="btn btn-lg btn-orange " style="color: white;" href="tel:{{ $account->phone }}"><i class="fas fa-phone-alt"></i>{{ __("Call Agent") }}</a></p>
                                     @elseif ($hotline = theme_option('hotline'))
                                         <p
                                             class="mobile"
                                             dir="ltr"
-                                        ><a href="tel:{{ $hotline }}">{{ $hotline }}</a>
+                                        ><a class="btn btn-lg btn-orange " style="color:white;" href="tel:{{ $hotline }}"><i class="fas fa-phone-alt"></i> {{ __("Call Support") }}</a>
                                         </p>
                                     @endif
                                     @if ($account->email && !setting('real_estate_hide_agency_email', 0))

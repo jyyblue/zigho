@@ -252,13 +252,30 @@ app()->booted(function () {
 
             $properties = app(PropertyInterface::class)->getPropertiesByConditions(
                 $conditions,
-                (int) $shortcode->limit ?: 8,
+                (int) $shortcode->limit ? $shortcode->limit / 2: 4,
                 RealEstateHelper::getPropertyRelationsQuery()
             );
 
-            if ($properties->isEmpty()) {
+            $condition_rent = [
+                're_properties.type' => PropertyTypeEnum::RENT,
+            ];
+
+            if (($shortcode->featured ?: 1) == 1) {
+                $condition_rent['re_properties.is_featured'] = true;
+            }
+
+            $properties_rent = app(PropertyInterface::class)->getPropertiesByConditions(
+                $condition_rent,
+                (int) $shortcode->limit ? $shortcode->limit /2 : 4,
+                RealEstateHelper::getPropertyRelationsQuery()
+            );
+
+            if ($properties->isEmpty() && $properties_rent->isEmpty()) {
                 return null;
             }
+
+            $properties = $properties->merge($properties_rent);
+            $properties = $properties->shuffle();
 
             return Theme::partial('short-codes.properties-for-sale', [
                 'title' => $shortcode->title,
@@ -292,9 +309,26 @@ app()->booted(function () {
                 RealEstateHelper::getPropertyRelationsQuery()
             );
 
-            if ($properties->isEmpty()) {
+            $condition_sale = [
+                're_properties.type' => PropertyTypeEnum::SALE,
+            ];
+
+            if (($shortcode->featured ?: 1) == 1) {
+                $condition_sale['re_properties.is_featured'] = true;
+            }
+
+            $properties_sale = app(PropertyInterface::class)->getPropertiesByConditions(
+                $condition_sale,
+                (int) $shortcode->limit ? $shortcode->limit / 2 : 4,
+                RealEstateHelper::getPropertyRelationsQuery()
+            );
+
+            if ($properties->isEmpty() && $properties_sale->isEmpty()) {
                 return null;
             }
+
+            $properties = $properties->merge($properties_sale);
+            $properties = $properties->shuffle();
 
             return Theme::partial('short-codes.properties-for-rent', [
                 'title' => $shortcode->title,
@@ -366,7 +400,7 @@ app()->booted(function () {
                 $agents = Account::query()
                     ->where('is_featured', true)
                     ->orderByDesc('id')
-                    ->take((int) $shortcode->limit ?: 4)
+                    ->take((int) $shortcode->limit ?: 14)
                     ->withCount([
                         'properties' => function ($query) {
                             return RepositoryHelper::applyBeforeExecuteQuery($query, $query->getModel());
