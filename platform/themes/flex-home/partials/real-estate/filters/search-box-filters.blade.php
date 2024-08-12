@@ -4,13 +4,10 @@
         <div class="form-group">
             <div class="row">
                 @if(RealEstateHelper::isEnabledProjects())
-                    <div class="col-sm-3 px-md-1">
+                    <div class="col-sm-4 px-md-1">
                         {!! Theme::partial('real-estate.filters.by-project') !!}
                     </div>
                 @endif
-                <div @class(['px-md-1', 'col-sm-3' => RealEstateHelper::isEnabledProjects(), 'col-sm-6' => ! RealEstateHelper::isEnabledProjects()])>
-                    {!! Theme::partial('real-estate.filters.categories', compact('categories')) !!}
-                </div>
                 {!! Theme::partial('real-estate.filters.price') !!}
             </div>
 

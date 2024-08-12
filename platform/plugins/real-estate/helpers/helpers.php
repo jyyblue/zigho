@@ -14,9 +14,9 @@ if (! function_exists('get_property_categories')) {
         $repo = app(CategoryInterface::class);
 
         $categories = $repo->getCategories(Arr::get($args, 'select', ['*']), [
+            'order' => 'ASC',
             'created_at' => 'DESC',
             'is_default' => 'DESC',
-            'order' => 'ASC',
         ], Arr::get($args, 'conditions', []));
 
         $categories = sort_item_with_children($categories);

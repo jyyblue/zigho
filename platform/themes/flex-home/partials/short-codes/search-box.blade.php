@@ -57,6 +57,15 @@
                     class="typesearch"
                     id="hometypesearch"
                 >
+                    @if (in_array('project', $tabs))
+                        <a
+                            data-url="{{ RealEstateHelper::getPropertiesListPageUrl() }}"
+                            data-ajax-url="{{ route('public.properties') }}"
+                            href="{{ route('public.properties') }}"
+                            @if ($defaultSearchType == 'project') class="active" @endif
+                            rel=""
+                        >{{ __('All') }}</a>
+                    @endif
                     @if (in_array('rent', $tabs))
                         <a
                             data-url="{{ RealEstateHelper::getPropertiesListPageUrl() }}"
@@ -77,15 +86,7 @@
                         >{{ __('Sale') }}</a>
                     @endif
 
-                    @if (in_array('project', $tabs))
-                        <a
-                            data-url="{{ RealEstateHelper::getPropertiesListPageUrl() }}"
-                            data-ajax-url="{{ route('public.properties') }}"
-                            href="{{ route('public.properties') }}"
-                            @if ($defaultSearchType == 'project') class="active" @endif
-                            rel=""
-                        >{{ __('All') }}</a>
-                    @endif
+
                 </div>
             @endif
 
