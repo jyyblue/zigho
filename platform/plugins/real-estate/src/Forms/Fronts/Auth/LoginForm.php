@@ -25,7 +25,6 @@ class LoginForm extends AuthForm
             ->setValidatorClass(LoginRequest::class)
             ->icon('ti ti-lock')
             ->heading(__('Login to your account'))
-            ->description(__('Your personal data will be used to support your experience throughout this website, to manage access to your account.'))
             ->when(
                 theme_option('login_background'),
                 fn (AuthForm $form, string $background) => $form->banner($background)

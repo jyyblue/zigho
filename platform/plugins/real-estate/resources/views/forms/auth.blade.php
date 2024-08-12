@@ -16,7 +16,7 @@
 
                 @if ($icon || $heading || $description)
                     <div class="card-header bg-body-tertiary border-0 p-5 pb-0">
-                        <div @class(['d-flex flex-column flex-md-row align-items-start gap-3' => $icon, 'text-center' => ! $icon])>
+                        <div @class(['d-flex flex-column flex-md-row align-items-center gap-3' => $icon, 'text-center' => ! $icon])>
                             @if ($icon)
                                 <div class="bg-white p-3 rounded">
                                     <x-core::icon :name="$icon" class="text-primary" />
@@ -72,3 +72,14 @@
     </div>
 </div>
 @endif
+
+    <!-- Laravel Javascript Validation -->
+    <!-- <script
+        type="text/javascript"
+        src="{{ asset('vendor/core/core/base/libraries/intl-tel-input/js/intlTelInput.min.js') }}"
+    ></script>
+
+    <script
+        type="text/javascript"
+        src="{{ asset('vendor/core/core/base/js/phone-number-field.js') }}"
+    ></script> -->

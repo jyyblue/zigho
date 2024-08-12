@@ -18,6 +18,7 @@ use Botble\RealEstate\Forms\Fronts\Auth\FieldOptions\EmailFieldOption;
 use Botble\RealEstate\Forms\Fronts\Auth\FieldOptions\TextFieldOption;
 use Botble\RealEstate\Http\Requests\Fronts\Auth\RegisterRequest;
 use Botble\RealEstate\Models\Account;
+use Botble\Base\Facades\Assets;
 
 class RegisterForm extends AuthForm
 {
@@ -30,7 +31,7 @@ class RegisterForm extends AuthForm
             ->setValidatorClass(RegisterRequest::class)
             ->icon('ti ti-user-plus')
             ->heading(__('Register an account'))
-            ->description(__('Your personal data will be used to support your experience throughout this website, to manage access to your account.'))
+            ->description(__('WELCOME TO RELOM, TO PROTECT YOUR SERVICES, PLEASE LOGIN/REGISTER'))
             ->when(
                 theme_option('register_background'),
                 fn (AuthForm $form, string $background) => $form->banner($background)
@@ -78,6 +79,7 @@ class RegisterForm extends AuthForm
                     ->label(__('Phone'))
                     ->placeholder(__('Phone number'))
                     ->icon('ti ti-phone')
+                    ->required()
             )
             ->add(
                 'password',

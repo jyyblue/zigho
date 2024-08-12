@@ -42,7 +42,7 @@
         padding-bottom: 0!important;
     }
 
-    .ps-5 {
+    .ps-5:not(.no-ps) {
         padding-left: 3rem!important;
     }
 

@@ -1,9 +1,11 @@
 $(() => {
     $(document).on('change', '#type', (event) => {
         if ($(event.currentTarget).val() === 'rent') {
-            $('#period').closest('.period-form-group').removeClass('hidden').fadeIn()
+            $('#period').closest('.period-form-group').removeClass('hidden').fadeIn();
+            $('#status').val('renting');
         } else {
-            $('#period').closest('.period-form-group').addClass('hidden').fadeOut()
+            $('#period').closest('.period-form-group').addClass('hidden').fadeOut();
+            $('#status').val('selling');
         }
     })
 

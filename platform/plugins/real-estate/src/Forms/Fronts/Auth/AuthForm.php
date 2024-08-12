@@ -13,7 +13,8 @@ abstract class AuthForm extends FormFront
     public function setup(): void
     {
         Theme::asset()->add('auth-css', 'vendor/core/plugins/real-estate/css/front-auth.css');
-
+        // Theme::asset()->add('phone-css', 'vendor/core/core/base/libraries/intl-tel-input/css/intlTelInput.min.css');
+        
         $this
             ->contentOnly()
             ->template('plugins/real-estate::forms.auth');

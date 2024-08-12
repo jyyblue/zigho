@@ -130,7 +130,7 @@ class SelectLocationField extends FormField
         ]);
 
         return array_merge([
-            'label' => trans('plugins/location::city.state'),
+            'label' => 'County', // trans('plugins/location::city.state'),
             'attr' => $attr,
             'choices' => ['' => trans('plugins/location::city.select_state')] + $states,
             'selected' => $value,
@@ -168,7 +168,7 @@ class SelectLocationField extends FormField
         ]);
 
         return array_merge([
-            'label' => trans('plugins/location::city.city'),
+            'label' => 'Estate', //trans('plugins/location::city.city'),
             'attr' => $attr,
             'choices' => ['' => trans('plugins/location::city.select_city')] + $cities,
             'selected' => $value,

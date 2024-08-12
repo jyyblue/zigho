@@ -36,7 +36,7 @@ class PhoneNumberField {
 $(document).ready(() => {
     new PhoneNumberField().init()
 
-    document.addEventListener('payment-form-reloaded', function () {
+    document.addEventListener('payment-form-reloaded223', function () {
         new PhoneNumberField().init()
     })
 })

@@ -51,9 +51,9 @@
                                     <span class="line"></span>
                                 @endif
                             @endif
-                            @if ($email = theme_option('email'))
+                            <!-- @if ($email = theme_option('email'))
                                 <a href="mailto:{{ $email }}" dir="ltr">{{ $email }}</a>
-                            @endif
+                            @endif -->
                         @endif
                     </div>
                     <div class="topbar-right">
@@ -154,6 +154,7 @@
                                     @endif
                                     @if (is_plugin_active('real-estate') && !auth('account')->check())
                                     <a class="btn btn-primary add-property d-none-max-992" href="{{ route('public.account.login') }}"><i class="fas fa-sign-in-alt"></i>&nbsp;{{ __('Login') }}</a>
+                                    <a class="btn btn-primary add-property d-none-max-992" href="{{ route('public.account.register') }}"><i class="fas fa-user-plus"></i>&nbsp;{{ __('Sign Up') }}</a>
                                     @else
                                     <a class="btn btn-primary add-property d-none-max-992" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fas fa-sign-out-alt"></i>&nbsp;{{ __('Logout') }}</a>
                                     @endif
@@ -201,7 +202,13 @@
                                                             <a href="{{ route('public.account.login') }}" class="btn btn-primary text-white"><i class="fas fa-sign-in-alt"></i>  {{ __('Login') }}</a>
                                                         </li>
                                                     @endif
+                                                    @if(!auth('account')->check())
+                                                        <li class="login-item">
+                                                            <a href="{{ route('public.account.register') }}" class="btn btn-primary text-white"><i class="fas fa-user-plus">{{ __(' Sign Up') }}</i></a>
+                                                        </li>
+                                                    @endif
                                                 </ul>
+                                                
                                                 @if (is_plugin_active('real-estate') && auth('account')->check())
                                                     <form id="logout-form" action="{{ route('public.account.logout') }}" method="POST" style="display: none;">
                                                         @csrf

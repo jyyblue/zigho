@@ -4,28 +4,28 @@ class PhoneNumberField {
             .find('.js-phone-number-mask')
             .each(function (index, element) {
                 window.intlTelInput(element, {
-                    // allowDropdown: false,
+                    allowDropdown: true,
                     // autoHideDialCode: false,
-                    // autoPlaceholder: "off",
+                    // autoPlaceholder: "on",
                     // dropdownContainer: document.body,
                     // excludeCountries: ["us"],
-                    // formatOnDisplay: false,
-                    geoIpLookup: function (callback) {
-                        $httpClient
-                            .make()
-                            .withCredentials(false)
-                            .get('https://ipinfo.io')
-                            .then(function ({ data }) {
-                                callback(data && data.country ? data.country : '')
-                            })
-                    },
+                    formatOnDisplay: true,
+                    // geoIpLookup: function (callback) {
+                    //     $httpClient
+                    //         .make()
+                    //         .withCredentials(false)
+                    //         .get('https://ipinfo.io')
+                    //         .then(function ({ data }) {
+                    //             callback(data && data.country ? data.country : '')
+                    //         })
+                    // },
                     // hiddenInput: "full_number",
-                    initialCountry: 'auto',
+                    // initialCountry: 'auto',
                     // localizedCountries: { 'de': 'Deutschland' },
                     // nationalMode: false,
                     // onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
                     // placeholderNumberType: "MOBILE",
-                    // preferredCountries: ['cn', 'jp'],
+                    preferredCountries: ['ke'],
                     // separateDialCode: true,
                     utilsScript: '/vendor/core/core/base/libraries/intl-tel-input/js/utils.js',
                 })

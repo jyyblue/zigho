@@ -14,9 +14,6 @@
         @endif
     </x-slot:label>
 
-    {!! Form::text(
-        $name,
-        $options['value'],
-        array_merge_recursive($options['attr'], ['class' => 'js-phone-number-mask form-control']),
-    ) !!}
+    <input type="tel" name="{{ $name }}" value="{{ $options['value'] }}" {!! Html::attributes(array_merge_recursive($options['attr'], ['class' => 'js-phone-number-mask form-control'])) !!}>
+
 </x-core::form.field>

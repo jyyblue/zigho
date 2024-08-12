@@ -98,15 +98,15 @@
         <header class="d-sm-flex justify-content-between align-items-center mb-3">
             <h3 class="fs-1">{{ PageTitle::getTitle(false) }}</h3>
 
-            <div class="d-flex align-items-center gap-4">
+            <div class="d-flex align-items-center gap-4 justify-content-between">
                 @if (is_plugin_active('language'))
                     @include('plugins/real-estate::themes.dashboard.layouts.language-switcher')
                 @endif
 
-                <a href="{{ route('public.index') }}" target="_blank" class="text-uppercase">
+                <a href="{{ route('public.index') }}" target="_blank" class="btn btn-primary rounded-pill">
                     {{ __('Go to homepage') }}
-                    <x-core::icon name="ti ti-arrow-right" />
                 </a>
+                <a class="btn btn-primary rounded-pill" @if (!auth('account')->user()->canPost()) href="{{ route('public.account.packages') }}" @else href="{{ route('public.account.properties.create') }}" @endif>{{ __("Add Property") }}</a>
             </div>
         </header>
 

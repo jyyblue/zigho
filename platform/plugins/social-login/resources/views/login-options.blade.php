@@ -1,7 +1,7 @@
 <div class="login-options">
-    <div class="login-options-title">
+    <!-- <div class="login-options-title">
         <p>{{ __('Login with social networks') }}</p>
-    </div>
+    </div> -->
 
     <ul @class(['social-icons', 'social-login-lg' => setting('social_login_style', 'default') === 'default'])>
         @foreach (SocialService::getProviderKeys() as $item)

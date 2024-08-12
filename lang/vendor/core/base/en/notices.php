@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'create_success_message' => 'Created successfully',
+    'create_success_message' => 'Congrats on your post',
     'update_success_message' => 'Updated successfully',
     'delete_success_message' => 'Deleted successfully',
     'success_header' => 'Success!',

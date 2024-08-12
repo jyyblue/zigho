@@ -79,12 +79,12 @@
 
                     @if (in_array('project', $tabs))
                         <a
-                            data-url="{{ RealEstateHelper::getProjectsListPageUrl() }}"
-                            data-ajax-url="{{ route('public.projects') }}"
-                            href="{{ route('public.projects') }}"
+                            data-url="{{ RealEstateHelper::getPropertiesListPageUrl() }}"
+                            data-ajax-url="{{ route('public.properties') }}"
+                            href="{{ route('public.properties') }}"
                             @if ($defaultSearchType == 'project') class="active" @endif
-                            rel="project"
-                        >{{ __('Projects') }}</a>
+                            rel=""
+                        >{{ __('All') }}</a>
                     @endif
                 </div>
             @endif

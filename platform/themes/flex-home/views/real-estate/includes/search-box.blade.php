@@ -10,7 +10,8 @@
         <div class="search-box-items">
             <div class="row ml-md-0 mr-md-0">
                 <div class="col-xl-3 col-lg-2 col-md-4 px-1">
-                    {!! Theme::partial('real-estate.filters.keyword') !!}
+                    <!-- {!! Theme::partial('real-estate.filters.keyword') !!} -->
+                    {!! Theme::partial('real-estate.filters.categories', ['categories' => $categories]) !!}
                 </div>
                 <div class="col-lg-2 col-md-4 px-1">
                     {!! Theme::partial('real-estate.filters.city') !!}
@@ -77,7 +78,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-md-4 px-1 mb-2">
+                    <!-- <div class="col-lg-2 col-md-4 px-1 mb-2">
                         <label for="select-type" class="control-label">{{ __('Square range') }}</label>
                         <div class="dropdown">
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuSquare" data-toggle="dropdown"
@@ -90,7 +91,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 @else
                     <div class="col-lg-2 col-md-4 px-1">
                         {!! Theme::partial('real-estate.filters.floor') !!}

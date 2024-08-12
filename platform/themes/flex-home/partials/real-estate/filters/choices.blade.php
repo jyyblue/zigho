@@ -13,9 +13,12 @@
                             {!! Theme::partial('real-estate.filters.type') !!}
                         </div>
                     @endif
-                    <div @class(['col-6 pl-1' => count(RealEstateHelper::enabledPropertyTypes()) > 1, 'col-12' => count(RealEstateHelper::enabledPropertyTypes()) <= 1])>
-                        {!! Theme::partial('real-estate.filters.categories', ['categories' => $categories]) !!}
+                    <div class="col-6 pl-1">
+                        {!! Theme::partial('real-estate.filters.floor') !!}
                     </div>
+                    <!-- <div @class(['col-6 pl-1' => count(RealEstateHelper::enabledPropertyTypes()) > 1, 'col-12' => count(RealEstateHelper::enabledPropertyTypes()) <= 1])>
+                        {!! Theme::partial('real-estate.filters.categories', ['categories' => $categories]) !!}
+                    </div> -->
                 </div>
             </div>
 
@@ -29,13 +32,14 @@
                     </div>
                 </div>
             </div>
-            <div class="dropdown-item">
+
+            <!-- <div class="dropdown-item">
                 <div class="row">
                     <div class="col-6 pr-1">
                         {!! Theme::partial('real-estate.filters.floor') !!}
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             {!! $extraChoices ?? null !!}
 

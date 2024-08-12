@@ -3,8 +3,8 @@
 return [
     'choose_image' => 'Choose image',
     'actions' => 'Actions',
-    'save' => 'Save & Exit',
-    'save_and_continue' => 'Save',
+    'save' => 'Submit & Exit',
+    'save_and_continue' => 'Submit',
     'image' => 'Image',
     'images' => 'Images',
     'image_placeholder' => 'Insert path of image or click upload button',

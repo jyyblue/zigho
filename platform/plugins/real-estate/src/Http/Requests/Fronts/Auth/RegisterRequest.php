@@ -17,7 +17,7 @@ class RegisterRequest extends Request
             'username' => ['required', 'string', 'max:120', 'min:2', 'unique:re_accounts,username'],
             'email' => ['required', 'max:60', 'min:6', new EmailRule(), 'unique:re_accounts'],
             'phone' => [
-                'nullable',
+                'required',
                 ...explode('|', BaseHelper::getPhoneValidationRule()),
                 'unique:re_accounts',
             ],

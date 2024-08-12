@@ -122,9 +122,9 @@ class PropertyForm extends FormAbstract
         $this
             ->setupModel(new Property())
             ->setValidatorClass(PropertyRequest::class)
-            ->add('name', TextField::class, NameFieldOption::make()->required()->toArray())
+            ->add('name', TextField::class, NameFieldOption::make()->label('Property Heading')->required()->toArray())
             ->add('type', SelectField::class, [
-                'label' => trans('plugins/real-estate::property.form.type'),
+                'label' => 'Choice', // trans('plugins/real-estate::property.form.type'),
                 'required' => true,
                 'choices' => PropertyTypeEnum::labels(),
                 'attr' => [
@@ -164,7 +164,7 @@ class PropertyForm extends FormAbstract
                 'html' => '<div class="row">',
             ])
             ->add('latitude', 'text', [
-                'label' => trans('plugins/real-estate::property.form.latitude'),
+                'label' => 'Latitude(Optional)', // trans('plugins/real-estate::property.form.latitude'),
                 'wrapper' => [
                     'class' => 'form-group mb-3 col-md-6',
                 ],
@@ -183,7 +183,7 @@ class PropertyForm extends FormAbstract
                 ],
             ])
             ->add('longitude', 'text', [
-                'label' => trans('plugins/real-estate::property.form.longitude'),
+                'label' => 'Logitude(optional)', // trans('plugins/real-estate::property.form.longitude'),
                 'wrapper' => [
                     'class' => 'form-group mb-3 col-md-6',
                 ],
@@ -208,7 +208,7 @@ class PropertyForm extends FormAbstract
                 'html' => '<div class="row">',
             ])
             ->add('number_bedroom', 'number', [
-                'label' => trans('plugins/real-estate::property.form.number_bedroom'),
+                'label' => 'Bedrooms', // trans('plugins/real-estate::property.form.number_bedroom'),
                 'wrapper' => [
                     'class' => 'form-group mb-3 col-md-3',
                 ],
@@ -217,7 +217,7 @@ class PropertyForm extends FormAbstract
                 ],
             ])
             ->add('number_bathroom', 'number', [
-                'label' => trans('plugins/real-estate::property.form.number_bathroom'),
+                'label' => 'Bathrooms', // trans('plugins/real-estate::property.form.number_bathroom'),
                 'wrapper' => [
                     'class' => 'form-group mb-3 col-md-3',
                 ],
@@ -225,17 +225,17 @@ class PropertyForm extends FormAbstract
                     'placeholder' => trans('plugins/real-estate::property.form.number_bathroom'),
                 ],
             ])
-            ->add('number_floor', 'number', [
-                'label' => trans('plugins/real-estate::property.form.number_floor'),
-                'wrapper' => [
-                    'class' => 'form-group mb-3 col-md-3',
-                ],
-                'attr' => [
-                    'placeholder' => trans('plugins/real-estate::property.form.number_floor'),
-                ],
-            ])
+            // ->add('number_floor', 'number', [
+            //     'label' => trans('plugins/real-estate::property.form.number_floor'),
+            //     'wrapper' => [
+            //         'class' => 'form-group mb-3 col-md-3',
+            //     ],
+            //     'attr' => [
+            //         'placeholder' => trans('plugins/real-estate::property.form.number_floor'),
+            //     ],
+            // ])
             ->add('square', 'number', [
-                'label' => trans('plugins/real-estate::property.form.square', ['unit' => $squareUnit]),
+                'label' => 'Square(optional)', // trans('plugins/real-estate::property.form.square', ['unit' => $squareUnit]),
                 'wrapper' => [
                     'class' => 'form-group mb-3 col-md-3',
                 ],
@@ -311,7 +311,7 @@ class PropertyForm extends FormAbstract
                     'priority' => 1,
                 ],
                 'facilities' => [
-                    'title' => trans('plugins/real-estate::property.distance_key'),
+                    'title' => 'Distance to facility(optional)', //  trans('plugins/real-estate::property.distance_key'),
                     'content' => view(
                         'plugins/real-estate::partials.form-facilities',
                         compact('facilities', 'selectedFacilities')

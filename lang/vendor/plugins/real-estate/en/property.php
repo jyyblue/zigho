@@ -56,7 +56,7 @@ return [
         'rejected' => 'Rejected',
     ],
     'renew_notice' => 'Renew automatically (you will be charged again in :days days)?',
-    'distance_key' => 'Distance key between facilities',
+    'distance_key' => 'Distance to facility',
     'never_expired' => 'Never expired?',
     'select_project' => 'Select a project...',
     'account' => 'Account',
