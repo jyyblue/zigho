@@ -41,9 +41,9 @@
                         </div>
                     </div>
                     @if (!empty($isChangeView))
-                        <div class="change-view ml-2">
-                            <i class="fas fa-map-marker-alt view-type-map @if (Arr::get($_COOKIE, 'show_map_on_properties', 1)) active @endif"></i>
-                        </div>
+                    <div class="change-view ml-2">
+                        <i class="fas fa-map-marker-alt view-type-map @if (Arr::get($_COOKIE, 'show_map_on_properties', 1)) active @endif"></i>
+                    </div>
                     @endif
                 </div>
             </div>

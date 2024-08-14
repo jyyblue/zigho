@@ -53,7 +53,7 @@ class PropertyForm extends FormAbstract
             ->mapWithKeys(fn (Project $item) => [$item->getKey() => $item->name])
             ->all();
 
-        $currencies = Currency::query()->pluck('title', 'id')->all();
+        $currencies = Currency::query()->orderBy('order', 'asc')->pluck('title', 'id')->all();
 
         $selectedCategories = [];
         if ($this->getModel()) {

@@ -113,7 +113,7 @@
         <div id="app">
             @if (auth('account')->check() && !auth('account')->user()->canPost())
                 <x-core::alert :title="trans('plugins/real-estate::package.add_credit_warning')">
-                    <a href="{{ route('public.account.packages') }}">
+                    <a class="btn btn-primary rounded-pill" href="{{ route('public.account.packages') }}">
                         {{ trans('plugins/real-estate::package.add_credit') }}
                     </a>
                 </x-core::alert>

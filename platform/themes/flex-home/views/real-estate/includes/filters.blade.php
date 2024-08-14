@@ -1,11 +1,11 @@
 <div class="shop__sort bg-light p-2 round">
     <div class="row">
-        <div class="col-toggle-filter col-12 col-xs-2 col-sm-2 d-md-none my-1 pr-sm-1">
+        <div class="col-12 col-xs-12 col-sm-12 d-md-none my-1 pr-sm-1">
             <div class="toggle-filter-offcanvas bg-light toggle-filter-mobile">
-                <i class="fal fa-filter mr-1"></i> <span class="toggle-filter-name d-block d-xs-none d-sm-block d-md-block">{{ __('Filter') }}</span>
+                <i class="fal fa-filter mr-1"></i> <span class=" d-block d-sm-block d-md-block">{{ __('Add Bedrooms & Baths') }}</span>
             </div>
         </div>
-        <div class="col-showing col-6 col-sm-5 col-md-6 my-1">
+        <div class="col-6 col-sm-6 col-md-6 my-1">
             <div class="form-group--inline">
                 <div class="form-group__content">
                     <div class="select--arrow">
@@ -22,7 +22,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sort-by col-6 col-sm-5 col-md-6 my-1">
+        <div class="col-6 col-sm-6 col-md-6 my-1">
             <div class="sort-by-wrap d-flex">
                 <div class="form-group--inline">
                     <div class="form-group__content">
@@ -41,9 +41,9 @@
                         </div>
                     </div>
                     @if (!empty($isChangeView))
-                        <div class="change-view ml-2">
-                            <i class="fas fa-map-marker-alt view-type-map @if (Arr::get($_COOKIE, 'show_map_on_properties', 1)) active @endif"></i>
-                        </div>
+                    <div class="change-view ml-2">
+                        <i class="fas fa-map-marker-alt view-type-map @if (Arr::get($_COOKIE, 'show_map_on_properties', 1)) active @endif"></i>
+                    </div>
                     @endif
                 </div>
             </div>

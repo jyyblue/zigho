@@ -1,5 +1,5 @@
 <div class="form-group">
-    <label for="select-floor" class="control-label">{{ __('Floors') }}</label>
+    <label for="select-floor" class="control-label">{{ __('Floors(Optional)') }}</label>
     <div class="select--arrow">
         <select name="floor" id="select-floor" class="form-control">
             <option value="">{{ __('-- Select --') }}</option>
