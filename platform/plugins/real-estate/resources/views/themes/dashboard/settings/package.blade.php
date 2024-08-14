@@ -44,13 +44,21 @@
                                     <li v-if="!item.price">&nbsp;</li>
                                 </ul>
                                 <div class="text-center mt-4">
-                                    <x-core::button
+                                    <x-core::button v-if="item.price"
                                         class="w-100"
                                         v-bind:class="isSubscribing && currentPackageId === item.id ? 'btn btn-success button-loading mt-2' : (item.is_default ? 'btn btn-success mt-2' : 'btn mt-2')"
                                         v-on:click="postSubscribe(item.id)"
                                         v-bind:disabled="isSubscribing"
                                     >
                                         {{ trans('plugins/real-estate::dashboard.purchase') }}
+                                    </x-core::button>
+                                    <x-core::button v-if="!item.price"
+                                        class="w-100"
+                                        v-bind:class="isSubscribing && currentPackageId === item.id ? 'btn btn-success button-loading mt-2' : (item.is_default ? 'btn btn-success mt-2' : 'btn mt-2')"
+                                        v-on:click="postSubscribe(item.id)"
+                                        v-bind:disabled="isSubscribing"
+                                    >
+                                        {{ __('Redeem') }}
                                     </x-core::button>
                                 </div>
                             </div>
