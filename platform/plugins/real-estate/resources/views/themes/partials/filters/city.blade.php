@@ -4,7 +4,7 @@
     <div class="location-input" data-url="{{ route('public.ajax.cities') }}" style="position: relative;">
         <div class="input-has-icon">
             <input class="select-city-state form-control" id="location" name="location"
-                value="{{ BaseHelper::stringify(request()->input('location')) }}" placeholder="{{ __('City, State') }}"
+                value="{{ BaseHelper::stringify(request()->input('location')) }}" placeholder="{{ __('County,Estate') }}"
                 autocomplete="off">
             <i class="far fa-location"></i>
         </div>
