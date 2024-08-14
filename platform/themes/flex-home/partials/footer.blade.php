@@ -6,7 +6,7 @@
                 <p>{{ __('We`ll help you to grow your career and growth.') }}</p>
             </div>
             <div class="col-sm-3 m-auto">
-                <a href="{{ route('public.account.register') }}" class="btn btn-light rounded-pill">{{ __('Sign Up') }}</a>
+                <a href="{{ route('public.account.register') }}" class="btn btn-light rounded-pill">{{ __('Register Now!') }}</a>
             </div>
         </div>
     </div>
@@ -78,7 +78,7 @@
 <div class="action_footer">
     <a href="#" @class(['cd-top', 'cd-top-40' => !Theme::get('hotlineNumber') && ! $hotline]) title="back to top"><i class="fas fa-arrow-up"></i></a>
     @if (Theme::get('hotlineNumber') || $hotline)
-        <a href="tel:{{ Theme::get('hotlineNumber') ?: $hotline }}" class="text-white" style="font-size: 17px;"><i class="fas fa-phone"></i> <span>  &nbsp;{{ Theme::get('hotlineNumber') ?: $hotline }}</span></a>
+        <a href="tel:{{ Theme::get('hotlineNumber') ?: $hotline }}" class="text-white" style="font-size: 17px; visibility: hidden;"><i class="fas fa-phone"></i> <span>  &nbsp;{{ Theme::get('hotlineNumber') ?: $hotline }}</span></a>
     @endif
 </div>
 
