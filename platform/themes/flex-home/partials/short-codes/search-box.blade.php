@@ -46,8 +46,8 @@
         @endif
         <form
             id="frmhomesearch"
-            @if ($enableProjectsSearch && $defaultSearchType == 'project') action="{{ RealEstateHelper::getProjectsListPageUrl() }}"
-            data-ajax-url="{{ route('public.projects') }}"
+            @if ($enableProjectsSearch && $defaultSearchType == 'project') action="{{ RealEstateHelper::getPropertiesListPageUrl() }}"
+            data-ajax-url="{{ route('public.properties') }}"
             @else action="{{ RealEstateHelper::getPropertiesListPageUrl() }}"
             data-ajax-url="{{ route('public.properties') }}" @endif
             method="GET"
