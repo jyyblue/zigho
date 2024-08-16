@@ -52,7 +52,7 @@
                                     >
                                         {{ trans('plugins/real-estate::dashboard.purchase') }}
                                     </x-core::button>
-                                    <x-core::button v-if="!item.price"
+                                    <x-core::button v-if="!item.price || item.id==1"
                                         class="w-100"
                                         v-bind:class="isSubscribing && currentPackageId === item.id ? 'btn btn-success button-loading mt-2' : (item.is_default ? 'btn btn-success mt-2' : 'btn mt-2')"
                                         v-on:click="postSubscribe(item.id)"
